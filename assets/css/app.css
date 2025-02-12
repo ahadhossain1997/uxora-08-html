@@ -4627,6 +4627,11 @@ textarea::placeholder {
 .uxora-default-title.title10 p {
   color: var(--light-color);
 }
+.uxora-default-title.title11 {
+  max-width: 350px;
+  margin: 0;
+  margin-bottom: 24px;
+}
 .uxora-default-data {
   font-size: 21px;
   line-height: 30px;
