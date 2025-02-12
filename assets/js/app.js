@@ -59,6 +59,52 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         $('#sticky-menu').removeClass('sticky-menu');
       }
     });
+    /*--------------------------------------------------------------
+      UXORA STICKY MENU JS INIT
+    --------------------------------------------------------------*/
+
+    var lastScroll = 0;
+    function sticky_header() {
+      var header_hegith = $('header').innerHeight();
+      var scroll = $(window).scrollTop();
+      if (scroll > header_hegith && scroll > lastScroll) {
+        $('header').addClass('hide-header');
+      } else if (scroll < lastScroll) {
+        $('header').removeClass('hide-header');
+      }
+      lastScroll = scroll;
+    }
+    $(function () {
+      sticky_header();
+    });
+    window.onload = function () {
+      sticky_header();
+    };
+    window.onscroll = function () {
+      sticky_header();
+    };
+    window.onresize = function (event) {
+      sticky_header();
+    };
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop() > 20) {
+        $('#sticky-menu').addClass('sticky-menu');
+      } else {
+        $('#sticky-menu').removeClass('sticky-menu');
+      }
+    });
+
+    /*--------------------------------------------------------------
+    UXORA TAB CONTENT JS INIT
+    --------------------------------------------------------------*/
+
+    $('ul.tabs li').click(function () {
+      var tab_id = $(this).attr('data-tab');
+      $('ul.tabs li').removeClass('current');
+      $('.uxora-tab-content').removeClass('current');
+      $(this).addClass('current');
+      $("#" + tab_id).addClass('current');
+    });
 
     /*--------------------------------------------------------------
     UXORA PROGRES CIRCLE JS INIT
